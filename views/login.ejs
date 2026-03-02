@@ -1,0 +1,65 @@
+<%- include('partials/header') %>
+
+    <main class="container" style="max-width: 450px; margin: 4rem auto;">
+        <div class="card glass-morphism" style="padding: 2.5rem; border-radius: var(--radius-lg);">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div
+                    style="width: 64px; height: 64px; background: var(--primary); color: white; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);">
+                    <i class="fas fa-lock-open"></i>
+                </div>
+                <h1 style="font-size: 1.75rem; font-weight: 800;">Welcome Back</h1>
+                <p style="color: var(--text-light);">Log in to manage your reports</p>
+            </div>
+
+            <% if (typeof error !=='undefined' && error) { %>
+                <div
+                    style="background: #fee2e2; color: #dc2626; padding: 0.75rem 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <%= error %>
+                </div>
+                <% } %>
+
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label for="email">Campus Email</label>
+                            <div style="position: relative;">
+                                <i class="fas fa-envelope"
+                                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light);"></i>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="student@campus.edu" required style="padding-left: 2.5rem;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div style="position: relative;">
+                                <i class="fas fa-lock"
+                                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light);"></i>
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="••••••••" required style="padding-left: 2.5rem;">
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; font-size: 0.875rem;">
+                            <label
+                                style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-light); cursor: pointer;">
+                                <input type="checkbox" style="width: 1rem; height: 1rem; accent-color: var(--primary);">
+                                Remember me
+                            </label>
+                            <a href="#" style="color: var(--primary); text-decoration: none;">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">
+                            Login
+                        </button>
+                    </form>
+
+                    <p style="text-align: center; margin-top: 1.5rem; color: var(--text-light);">
+                        Don't have an account? <a href="/signup"
+                            style="color: var(--primary); font-weight: 600; text-decoration: none;">Create one</a>
+                    </p>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>

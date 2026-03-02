@@ -1,0 +1,4 @@
+{"level":"info","message":"Server running at http://localhost:3000","timestamp":"2026-03-02T12:41:53.608Z"}
+{"level":"info","message":"Server running at http://localhost:3000","timestamp":"2026-03-02T12:44:24.159Z"}
+{"level":"info","message":"Server running at http://localhost:3000","timestamp":"2026-03-02T12:49:10.094Z"}
+{"level":"error","message":"Login error: Invalid email or password. Please try again.","timestamp":"2026-03-02T13:17:06.687Z"}

@@ -1,0 +1,87 @@
+<%- include('partials/header') %>
+
+    <main class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 style="font-size: 2rem;">
+                <%= title %>
+            </h1>
+            <% if (!isAdmin) { %>
+                <a href="/report" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> New Report
+                </a>
+                <% } %>
+        </div>
+
+        <div class="grid grid-cols-1">
+            <% if (reports.length===0) { %>
+                <div class="card" style="text-align: center; padding: 4rem;">
+                    <i class="fas fa-clipboard-list"
+                        style="font-size: 3rem; color: var(--text-light); margin-bottom: 1rem;"></i>
+                    <p style="color: var(--text-light);">No issues reported yet. Your dashboard is looking clean!</p>
+                </div>
+                <% } else { %>
+                    <% reports.forEach(report=> { %>
+                        <div class="card glass-morphism"
+                            style="margin-bottom: 1rem; display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem;">
+                            <% if (report.imageUrl) { %>
+                                <img src="<%= report.imageUrl %>"
+                                    style="width: 150px; height: 150px; object-fit: cover; border-radius: var(--radius-md);">
+                                <% } else { %>
+                                    <div
+                                        style="width: 150px; height: 150px; background: #f1f5f9; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); color: var(--text-light);">
+                                        <i class="fas fa-image" style="font-size: 2.5rem;"></i>
+                                    </div>
+                                    <% } %>
+
+                                        <div style="flex: 1;">
+                                            <div
+                                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                                <h3 style="font-size: 1.25rem;">
+                                                    <%= report.title %>
+                                                </h3>
+                                                <span
+                                                    class="badge badge-<%= report.status.toLowerCase().replace(' ', '') %>">
+                                                    <%= report.status %>
+                                                </span>
+                                            </div>
+                                            <p
+                                                style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 0.5rem;">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <%= report.location %> |
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <%= new Date(report.createdAt).toLocaleDateString() %>
+                                            </p>
+                                            <p style="margin-bottom: 1rem;">
+                                                <%= report.description %>
+                                            </p>
+
+                                            <% if (isAdmin) { %>
+                                                <div
+                                                    style="border-top: 1px solid var(--border); padding-top: 1rem; display: flex; align-items: center; gap: 1rem;">
+                                                    <form action="/admin/update-status" method="POST"
+                                                        style="display: flex; gap: 0.5rem;">
+                                                        <input type="hidden" name="reportId" value="<%= report.id %>">
+                                                        <select name="status" class="form-control"
+                                                            style="width: auto; padding: 0.3rem 0.5rem;">
+                                                            <option value="Pending" <%=report.status==='Pending'
+                                                                ? 'selected' : '' %>>Pending</option>
+                                                            <option value="In Progress" <%=report.status==='In Progress'
+                                                                ? 'selected' : '' %>>In Progress</option>
+                                                            <option value="Resolved" <%=report.status==='Resolved'
+                                                                ? 'selected' : '' %>>Resolved</option>
+                                                        </select>
+                                                        <button type="submit" class="btn btn-outline"
+                                                            style="padding: 0.3rem 0.8rem;">Update Status</button>
+                                                    </form>
+                                                    <span style="font-size: 0.8rem; color: var(--text-light);">Reported
+                                                        by: <%= report.userName %></span>
+                                                </div>
+                                                <% } %>
+                                        </div>
+                        </div>
+                        <% }) %>
+                            <% } %>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>

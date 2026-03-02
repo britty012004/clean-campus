@@ -1,0 +1,73 @@
+<%- include('partials/header') %>
+
+    <main class="container" style="max-width: 450px; margin: 4rem auto;">
+        <div class="card glass-morphism" style="padding: 2.5rem; border-radius: var(--radius-lg);">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <i class="fas fa-user-plus" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h1 style="font-size: 1.75rem; font-weight: 800;">Create Account</h1>
+                <p style="color: var(--text-light);">Join the Clean Campus community</p>
+            </div>
+
+            <% if (typeof error !=='undefined' && error) { %>
+                <div
+                    style="background: #fee2e2; color: #dc2626; padding: 0.75rem 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <%= error %>
+                </div>
+                <% } %>
+
+                    <form action="/signup" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <div style="position: relative;">
+                                <i class="fas fa-user"
+                                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light);"></i>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="John Doe"
+                                    required style="padding-left: 2.5rem;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Campus Email</label>
+                            <div style="position: relative;">
+                                <i class="fas fa-envelope"
+                                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light);"></i>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="student@campus.edu" required style="padding-left: 2.5rem;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div style="position: relative;">
+                                <i class="fas fa-lock"
+                                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light);"></i>
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="••••••••" required style="padding-left: 2.5rem;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div style="position: relative;">
+                                <i class="fas fa-shield-alt"
+                                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light);"></i>
+                                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                                    placeholder="••••••••" required style="padding-left: 2.5rem;">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 100%; margin-top: 1rem; padding: 0.8rem;">
+                            Sign Up
+                        </button>
+                    </form>
+
+                    <p style="text-align: center; margin-top: 1.5rem; color: var(--text-light);">
+                        Already have an account? <a href="/login"
+                            style="color: var(--primary); font-weight: 600; text-decoration: none;">Log In</a>
+                    </p>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>

@@ -1,0 +1,73 @@
+<%- include('partials/header') %>
+
+    <main class="container">
+        <section class="hero"
+            style="text-align: center; padding: 4rem 1rem; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border-radius: var(--radius-lg); margin-bottom: 3rem; position: relative; overflow: hidden;">
+            <div style="position: relative; z-index: 2;">
+                <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; font-weight: 800;">Join the Clean Campus Movement
+                </h1>
+                <p style="font-size: 1.25rem; font-weight: 500; opacity: 0.9; max-width: 800px; margin: 0 auto 2.5rem;">
+                    Empowering students to create a better environment. Report issues instantly and track their progress
+                    in real-time.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="/report" class="btn btn-primary"
+                        style="background: white; color: var(--primary); font-size: 1.1rem; padding: 0.75rem 2rem;">Report
+                        an Issue</a>
+                    <a href="/login" class="btn btn-outline" style="border-color: white; color: white;">Get Started</a>
+                </div>
+            </div>
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 20px 20px;">
+            </div>
+        </section>
+
+        <section class="stats grid grid-cols-3" style="margin-bottom: 4rem;">
+            <div class="card" style="text-align: center; border-bottom: 4px solid var(--primary);">
+                <i class="fas fa-bullhorn" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="font-size: 1.5rem;">500+</h3>
+                <p style="color: var(--text-light);">Reports Filed</p>
+            </div>
+            <div class="card" style="text-align: center; border-bottom: 4px solid var(--warning);">
+                <i class="fas fa-clock" style="font-size: 2rem; color: var(--warning); margin-bottom: 1rem;"></i>
+                <h3 style="font-size: 1.5rem;">120</h3>
+                <p style="color: var(--text-light);">In Progress</p>
+            </div>
+            <div class="card" style="text-align: center; border-bottom: 4px solid var(--success);">
+                <i class="fas fa-check-circle" style="font-size: 2rem; color: var(--success); margin-bottom: 1rem;"></i>
+                <h3 style="font-size: 1.5rem;">380+</h3>
+                <p style="color: var(--text-light);">Issues Resolved</p>
+            </div>
+        </section>
+
+        <section class="features" style="padding: 2rem 0;">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">How It Works</h2>
+            <div class="grid grid-cols-3">
+                <div style="text-align: center;">
+                    <div
+                        style="width: 60px; height: 60px; background: #eef2ff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: 800;">
+                        1</div>
+                    <h4 style="margin-bottom: 0.5rem;">Spot an Issue</h4>
+                    <p style="color: var(--text-light);">Notice a broken bench, dirty washroom, or garbage buildup on
+                        campus? Take a photo!</p>
+                </div>
+                <div style="text-align: center;">
+                    <div
+                        style="width: 60px; height: 60px; background: #fff1f2; color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: 800;">
+                        2</div>
+                    <h4 style="margin-bottom: 0.5rem;">Quick Report</h4>
+                    <p style="color: var(--text-light);">Submit a quick report through our simple form. Upload a picture
+                        and tag the location.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div
+                        style="width: 60px; height: 60px; background: #f0fdf4; color: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: 800;">
+                        3</div>
+                    <h4 style="margin-bottom: 0.5rem;">See Change</h4>
+                    <p style="color: var(--text-light);">Track the status as admins update it. Be part of a cleaner and
+                        safer campus community.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
